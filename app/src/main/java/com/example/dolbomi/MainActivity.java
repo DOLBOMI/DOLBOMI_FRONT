@@ -1,4 +1,4 @@
-package org.techtown.dolbomi;
+package com.example.dolbomi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -53,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         barChart.getXAxis().setDrawGridLines(false);
         barChart.getXAxis().setDrawAxisLine(false);
-        //barChart.setDrawValueAboveBar(true);
-        barChart.getXAxis().setGranularity(10);
+        barChart.getXAxis().setEnabled(false);
 
 
         barChart.setData(data);
@@ -67,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu);
 
         TextView textView = (TextView)findViewById(R.id.textView);
 

@@ -1,5 +1,6 @@
-package org.techtown.dolbomi;
+package com.example.dolbomi;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
@@ -23,7 +24,7 @@ public class IntroActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg) {
             if (msg.what == 1) {
-                Intent intent = new Intent(IntroActivity.this, MainActivity.class);
+                Intent intent = new Intent(IntroActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         }

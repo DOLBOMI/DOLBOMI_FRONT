@@ -1,4 +1,4 @@
-package org.techtown.dolbomi;
+package com.example.dolbomi;
 
 import android.os.Handler;
 import android.os.Message;
