@@ -20,55 +20,231 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:fillViewport="true">
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
             android:orientation="vertical"
             android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/round_rectangle"
-                android:gravity="center"
-                android:color="@color/black"
-                android:text="침대 위 센서"/>
 
-            <TextView
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/round_rectangle"
-                android:gravity="center"
-                android:color="@color/black"
-                android:text="현관문 센서"/>
-            <TextView
+                android:layout_marginBottom="50dp">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/round_rectangle"
+                    android:color="@color/black"
+                    android:gravity="center"
+                    android:text="침대 위 센서"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="-164dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/bed_round"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/delete_button"
+                    app:layout_constraintHorizontal_bias="0.175"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/delete_button"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="252dp"
+                    android:layout_marginLeft="252dp"
+                    android:backgroundTint="@color/green"
+                    android:text="삭제"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/round_rectangle"
-                android:gravity="center"
-                android:color="@color/black"
-                android:text="약통 센서"/>
-            <TextView
+                android:layout_marginBottom="50dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/round_rectangle"
+                    android:color="@color/black"
+                    android:gravity="center"
+                    android:text="욕실 문 센서"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="-164dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/bathtub_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/delete_button2"
+                    app:layout_constraintHorizontal_bias="0.175"
+                    app:layout_constraintStart_toStartOf="@+id/textView2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/delete_button2"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="252dp"
+                    android:layout_marginLeft="252dp"
+                    android:backgroundTint="@color/green"
+                    android:text="삭제"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/round_rectangle"
-                android:gravity="center"
-                android:color="@color/black"
-                android:text="화장실 센서"/>
-            <TextView
+                android:layout_marginBottom="50dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/round_rectangle"
+                    android:color="@color/black"
+                    android:gravity="center"
+                    android:text="약통 센서"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="-164dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/pill_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/delete_button3"
+                    app:layout_constraintHorizontal_bias="0.175"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/delete_button3"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="252dp"
+                    android:layout_marginLeft="252dp"
+                    android:backgroundTint="@color/green"
+                    android:text="삭제"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView3"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.52"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:layout_marginBottom="100dp"
-                android:background="@drawable/round_rectangle"
-                android:gravity="center"
-                android:color="@color/black"
-                android:text="냉장고 센서"/>
+                android:layout_marginBottom="50dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/round_rectangle"
+                    android:color="@color/black"
+                    android:gravity="center"
+                    android:text="침실 문 센서"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="-164dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/bed_round"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/delete_button4"
+                    app:layout_constraintHorizontal_bias="0.175"
+                    app:layout_constraintStart_toStartOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/delete_button4"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="252dp"
+                    android:layout_marginLeft="252dp"
+                    android:backgroundTint="@color/green"
+                    android:text="삭제"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="100dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/round_rectangle"
+                    android:color="@color/black"
+                    android:gravity="center"
+                    android:text="냉장고 센서"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="-164dp"
+                    tools:layout_editor_absoluteY="0dp" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/fridge_icon"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/delete_button5"
+                    app:layout_constraintHorizontal_bias="0.175"
+                    app:layout_constraintStart_toStartOf="@+id/textView5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/delete_button5"
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="252dp"
+                    android:layout_marginLeft="252dp"
+                    android:backgroundTint="@color/green"
+                    android:text="삭제"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView5"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
