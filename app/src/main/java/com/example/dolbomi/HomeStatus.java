@@ -1,4 +1,4 @@
-package org.techtown.dolbomi;
+package com.example.dolbomi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
