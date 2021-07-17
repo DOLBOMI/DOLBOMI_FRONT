@@ -6,6 +6,7 @@
         android:icon="@android:drawable/ic_menu_add"
         android:title="AddSensor"
         app:showAsAction="ifRoom"/>
-
+    <!-- 꼭 title에 Sensor라고 안해도 될 것 같아! 왜냐면 Add 버튼눌러서
+        sensor말고도 user 추가할때도 이 버튼 쓰려규! -->
     <!--TO DO: showAsAction속성값 변경여부 결정-->
 </menu>
