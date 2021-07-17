@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TagHistory">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/green"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="0000년 00월 00일"
+        android:textSize="70px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:onClick="showDatePicker"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+        app:srcCompat="@drawable/date32" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="409dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/round_rectangle"
+                app:srcCompat="@drawable/all_w_64" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/round_rectangle"
+
+                app:srcCompat="@drawable/bed_64" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_rectangle"
+                app:srcCompat="@drawable/lavatory_64" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_rectangle"
+                app:srcCompat="@drawable/pill_64" />
+
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_rectangle"
+                app:srcCompat="@drawable/smart_refrigerator_64" />
+
+            <ImageButton
+                android:id="@+id/imageButton13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_rectangle"
+                app:srcCompat="@drawable/beds_64" />
+
+            <ImageButton
+                android:id="@+id/imageButton14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_rectangle"
+                app:srcCompat="@drawable/calendar64" />
+
+            <ImageButton
+                android:id="@+id/imageButton15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_rectangle"
+                app:srcCompat="@drawable/refrigerator_64" />
+
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+        <TableLayout
+            android:id="@+id/tableLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#ffffff"
+            android:stretchColumns="*"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="0.5dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="#C5C5C5"
+                    android:gravity="center"
+                    android:text="시간"
+                    android:textSize="27dp" />
+
+                <TextView
+                    android:id="@+id/textView_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0.5dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="1dp"
+                    android:background="#C5C5C5"
+                    android:gravity="center"
+                    android:text="태그"
+                    android:textSize="27dp" />
+
+            </TableRow>
+        </TableLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="35dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="#C5C5C5"
+                    android:stretchColumns="*"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#616161"
+                        tools:layout_editor_absoluteX="1dp"
+                        tools:layout_editor_absoluteY="1dp" />
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="21:37"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="침실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="21:35"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="화장실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="21:11"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="화장실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="21:03"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="냉장고"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="20:45"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="침실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="20:04"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="약"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="20:02"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="냉장고"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView25"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="18:50"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="화장실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView27"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="18:46"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView28"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="화장실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView29"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="18:45"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="현관문"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="14:24"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView32"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="현관문"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView33"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="14:15"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView34"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="침실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView35"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="14:13"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView36"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="화장실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView37"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="13:50"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView38"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="화장실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView39"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="13:12"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView40"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="냉장고"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView41"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="12:03"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView42"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="약"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView43"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="10:50"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView44"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="냉장고"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView45"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="10:38"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView46"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="화장실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="10:33"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView48"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="화장실"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView49"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="10:31"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView50"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="냉장고"
+                            android:textSize="23dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textView51"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="10:24"
+                            android:textSize="23dp" />
+
+                        <TextView
+                            android:id="@+id/textView52"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="0.5dp"
+                            android:layout_marginTop="0.5dp"
+                            android:layout_marginRight="0.5dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:background="#ffffff"
+                            android:gravity="center"
+                            android:text="침실"
+                            android:textSize="23dp" />
+                    </TableRow>
+                </TableLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
