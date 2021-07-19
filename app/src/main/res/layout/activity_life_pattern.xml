@@ -184,18 +184,33 @@
                         android:src="@drawable/bed_round"
                         tools:ignore="MissingConstraints" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar1"
-                        style="?android:attr/progressBarStyleHorizontal"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="20dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/custom_progress_bar">
+                        android:layout_height="wrap_content">
 
-                    </ProgressBar>
+                        <ProgressBar
+                            android:id="@+id/progressBar1"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="20dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/custom_progress_bar">
+
+                        </ProgressBar>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView1"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:layout_marginLeft="10dp"/>
+                    </FrameLayout>
+
 
                 </LinearLayout>
 
@@ -229,18 +244,32 @@
                         android:src="@drawable/bathtub_icon"
                         tools:ignore="MissingConstraints" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar2"
-                        style="?android:attr/progressBarStyleHorizontal"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="20dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/custom_progress_bar">
+                        android:layout_height="wrap_content">
 
-                    </ProgressBar>
+                        <ProgressBar
+                            android:id="@+id/progressBar2"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="20dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/custom_progress_bar">
+
+                        </ProgressBar>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView2"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:layout_marginLeft="10dp"/>
+                    </FrameLayout>
 
                 </LinearLayout>
 
@@ -274,18 +303,32 @@
                         android:src="@drawable/pill_icon"
                         tools:ignore="MissingConstraints" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar3"
-                        style="?android:attr/progressBarStyleHorizontal"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="20dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/custom_progress_bar">
+                        android:layout_height="wrap_content">
 
-                    </ProgressBar>
+                        <ProgressBar
+                            android:id="@+id/progressBar3"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="20dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/custom_progress_bar">
+
+                        </ProgressBar>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView3"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:layout_marginLeft="10dp"/>
+                    </FrameLayout>
 
                 </LinearLayout>
 
@@ -319,18 +362,32 @@
                         android:src="@drawable/bed_round"
                         tools:ignore="MissingConstraints" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar4"
-                        style="?android:attr/progressBarStyleHorizontal"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="20dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/custom_progress_bar">
+                        android:layout_height="wrap_content">
 
-                    </ProgressBar>
+                        <ProgressBar
+                            android:id="@+id/progressBar4"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="20dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/custom_progress_bar">
+
+                        </ProgressBar>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView4"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:layout_marginLeft="10dp"/>
+                    </FrameLayout>
 
                 </LinearLayout>
 
@@ -348,7 +405,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="7dp"
                     android:text="냉장고 센서"
-                    android:textColor="#146A59"
+                    android:textColor="@color/black"
                     android:textSize="15sp" />
 
                 <LinearLayout
@@ -364,18 +421,32 @@
                         android:src="@drawable/fridge_icon"
                         tools:ignore="MissingConstraints" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar5"
-                        style="?android:attr/progressBarStyleHorizontal"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="20dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/custom_progress_bar">
+                        android:layout_height="wrap_content">
 
-                    </ProgressBar>
+                        <ProgressBar
+                            android:id="@+id/progressBar5"
+                            style="?android:attr/progressBarStyleHorizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="20dp"
+                            android:max="100"
+                            android:progress="0"
+                            android:progressDrawable="@drawable/custom_progress_bar">
+
+                        </ProgressBar>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/textView5"
+                            android:text="0"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:layout_marginLeft="10dp"/>
+                    </FrameLayout>
 
                 </LinearLayout>
 
