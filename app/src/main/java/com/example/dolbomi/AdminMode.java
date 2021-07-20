@@ -76,16 +76,19 @@ public class AdminMode extends AppCompatActivity {
     }
 
     public void show() {
-        final EditText edittext = new EditText(this);
+        final EditText edittext1 = new EditText(this);
+        final EditText edittext2 = new EditText(this);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("사용자 추가\n");
-        builder.setMessage("노인 행정 등록번호");
-        builder.setView(edittext);
+        builder.setTitle("사용자 추가 \n\n");
+        builder.setMessage("노인 행정 등록번호 입력");
+        builder.setView(edittext1);
+        //builder.setMessage("성함");
+        //builder.setView(edittext2);
         builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), edittext.getText().toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), edittext1.getText().toString(), Toast.LENGTH_LONG).show();
             }
         });
         builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
