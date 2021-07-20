@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".ChangeStatus"></activity>
-        <activity android:name=".AdminMode">
+        <activity android:name=".AdminMode"></activity>
+        <activity android:name=".TagHistory">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
