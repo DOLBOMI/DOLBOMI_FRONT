@@ -33,7 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
+        android:background="#ffffff"
         android:onClick="showDatePicker"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
@@ -877,6 +878,15 @@
                             android:text="침실"
                             android:textSize="23dp" />
                     </TableRow>
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#616161"
+                        tools:layout_editor_absoluteX="1dp"
+                        tools:layout_editor_absoluteY="1dp" />
+
                 </TableLayout>
 
 
