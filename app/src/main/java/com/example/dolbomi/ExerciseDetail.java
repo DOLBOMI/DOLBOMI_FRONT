@@ -8,8 +8,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.dolbomi.paging.LakuePagingButton;
+import com.example.dolbomi.paging.OnPageSelectListener;
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -40,8 +41,12 @@ public class ExerciseDetail extends AppCompatActivity {
         BarDataSet depenses = new BarDataSet (entries, "일일 걸음 수 "); // 변수로 받아서 넣어줘도 됨
         depenses.setAxisDependency(YAxis.AxisDependency.LEFT);
 
+        int[] BARCHART_COLOR = {
+                Color.rgb(89, 172, 155), Color.rgb(20, 106, 89), Color.rgb(89, 172, 155),
+        };
+
         BarData data = new BarData(depenses);
-        depenses.setColors(ColorTemplate.LIBERTY_COLORS);
+        depenses.setColors(BARCHART_COLOR);
 
         barChart.getXAxis().setDrawGridLines(false);
         barChart.getXAxis().setDrawAxisLine(false);
