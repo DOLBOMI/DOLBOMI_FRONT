@@ -15,7 +15,6 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
-import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 
@@ -30,6 +29,10 @@ public class ExerciseDetail extends AppCompatActivity {
     String distanceAvg = "3.2";
     String kcalAvg = "161";
 
+    String yesterdayDate = "21/07/21";
+    String selectedDate = "21/07/22";
+    String tomorrowDate = "21/07/23";
+
     public void BarChartGraph() {
         // BarChart 메소드
         barChart=findViewById(R.id.step_bar_chart);
@@ -38,19 +41,22 @@ public class ExerciseDetail extends AppCompatActivity {
         entries.add(new BarEntry(1, selectDay));
         entries.add(new BarEntry(2, tomorrow));
 
-        BarDataSet depenses = new BarDataSet (entries, "일일 걸음 수 "); // 변수로 받아서 넣어줘도 됨
-        depenses.setAxisDependency(YAxis.AxisDependency.LEFT);
-
         int[] BARCHART_COLOR = {
                 Color.rgb(89, 172, 155), Color.rgb(20, 106, 89), Color.rgb(89, 172, 155),
         };
 
-        BarData data = new BarData(depenses);
+        BarDataSet depenses = new BarDataSet (entries, "일일 걸음 수");
+        depenses.setAxisDependency(YAxis.AxisDependency.LEFT);
         depenses.setColors(BARCHART_COLOR);
+
+        BarData data = new BarData(depenses);
+        data.setValueTextSize(15f);
 
         barChart.getXAxis().setDrawGridLines(false);
         barChart.getXAxis().setDrawAxisLine(false);
         barChart.getXAxis().setEnabled(false);
+        barChart.getDescription().setEnabled(false); //label description 삭제
+        //barChart.getLegend().setEnabled(false); // 범례 삭제
 
         barChart.setData(data);
         barChart.animateXY(1000,1000);
@@ -73,6 +79,8 @@ public class ExerciseDetail extends AppCompatActivity {
         BarChartGraph();
         barChart.setTouchEnabled(false);//확대하지못하게 막아버림
 
+        TextView labelView = (TextView)findViewById(R.id.date_label);
+        labelView.setText(yesterdayDate+"          "+selectedDate+"          "+tomorrowDate);
         TextView textView1 = (TextView)findViewById(R.id.textView9);
         textView1.setText(stepAvg+"걸음");
         TextView textView2 = (TextView)findViewById(R.id.textView11);

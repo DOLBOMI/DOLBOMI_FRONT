@@ -22,11 +22,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button">
 
+        <TextView
+            android:id="@+id/date_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="281dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="50dp"
         android:background="#d3d3d3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
@@ -37,22 +47,23 @@
             android:id="@+id/step_bar_chart"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="114dp"
-            tools:layout_editor_absoluteY="0dp" />
-
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="120dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
+
     <FrameLayout
         android:id="@+id/container2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/button">
+
     <TableLayout
         android:id="@+id/exercise_detail_table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="80dp"
-        android:paddingBottom="40dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="0dp"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
         android:stretchColumns="*">
@@ -61,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#9F9F9F" />
+
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
