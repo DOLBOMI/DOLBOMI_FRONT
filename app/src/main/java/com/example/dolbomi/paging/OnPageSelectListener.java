@@ -1,4 +1,4 @@
-package com.example.dolbomi;
+package com.example.dolbomi.paging;
 
 public interface OnPageSelectListener {
     void onPageBefore(int now_page);

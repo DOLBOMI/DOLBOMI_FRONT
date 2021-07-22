@@ -1,9 +1,8 @@
-package com.example.dolbomi;
+package com.example.dolbomi.paging;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -13,8 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import com.example.dolbomi.PagingDefine;
-import com.example.dolbomi.OnPageSelectListener;
+
+import com.example.dolbomi.R;
 
 public class LakuePagingButton extends LinearLayout {
 

@@ -1,8 +1,8 @@
-package com.example.dolbomi;
+package com.example.dolbomi.paging;
 
 import android.content.Context;
 
-import com.example.dolbomi.PagingDefine;
+import com.example.dolbomi.paging.PagingDefine;
 
 
 public class DivisionPageType {

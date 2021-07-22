@@ -1,4 +1,4 @@
-package com.example.dolbomi;
+package com.example.dolbomi.paging;
 
 public class PagingDefine {
     public static final int ADD_PAGE_TYPE_FIRST= 10;
