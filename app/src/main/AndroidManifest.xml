@@ -12,12 +12,12 @@
         <activity android:name=".ChangeStatus"></activity>
         <activity android:name=".AdminMode"></activity>
         <activity android:name=".TagHistory">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+        <activity android:name=".ExerciseDetail"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
         <activity android:name=".SensorActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomeStatus" />
