@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -102,6 +101,45 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(x+"걸음\n"+(x*0.37)+"Kcal");
 
         BarChartGraph();
+
+        Button lifePatternButton = (Button) findViewById(R.id.lifePatternButton);
+        Button tagHistoryButton = (Button) findViewById(R.id.tagHistoryButton);
+        Button MyHomeButton = (Button) findViewById(R.id.MyHomeButton);
+        Button SensorButton = (Button) findViewById(R.id.SensorButton);
+
+        lifePatternButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), LifePatternActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tagHistoryButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), TagHistory.class);
+                startActivity(intent);
+            }
+        });
+
+        MyHomeButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), HomeStatus.class);
+                startActivity(intent);
+            }
+        });
+
+        SensorButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), SensorActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
