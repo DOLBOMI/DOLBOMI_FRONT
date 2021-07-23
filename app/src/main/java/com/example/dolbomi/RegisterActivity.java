@@ -34,6 +34,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                 PhysicalInputActivity.callFunction(heightValue, weightValue);
 
+                physicalMoreButton.setText("입력 완료!");
+
             }
 
         });
