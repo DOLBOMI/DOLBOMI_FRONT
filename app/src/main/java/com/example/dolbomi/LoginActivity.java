@@ -15,15 +15,34 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        //회원가입 버튼 클릭시 액티비티 전환
-         Button registerButton = (Button) findViewById(R.id.registerButton);
+        // 버튼 클릭시 액티비티 전환
+        Button registerButton = (Button) findViewById(R.id.registerButton);
+        Button changePasswordButton = (Button) findViewById(R.id.changePasswordButton);
+        Button loginButton = (Button) findViewById(R.id.loginButton);
+
         registerButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 startActivity(intent);
             }
-         });
+        });
+
+        changePasswordButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), ChangePasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        loginButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
