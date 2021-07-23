@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".LifePatternActivity"></activity>
         <activity android:name=".PhysicalInputActivity"></activity>
         <activity android:name=".ChangePasswordActivity" />
         <activity android:name=".SensorActivity" />
