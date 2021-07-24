@@ -79,6 +79,7 @@
             android:layout_marginRight="20dp"
             android:text="패턴 보기"
             android:textSize="20dp"
+            android:onClick="ClickPattern"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,6 +92,7 @@
             android:layout_marginTop="15dp"
             android:text="태그 기록"
             android:textSize="20dp"
+            android:onClick="ClickTagHistory"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -102,6 +104,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:text="내 집 상태"
+            android:onClick="ClickHomeStatus"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -114,6 +117,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="10dp"
             android:text="센서 관리"
+            android:onClick="ClickSensor"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

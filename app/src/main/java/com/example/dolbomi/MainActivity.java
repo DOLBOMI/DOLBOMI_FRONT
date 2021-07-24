@@ -2,9 +2,12 @@ package com.example.dolbomi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.PatternMatcher;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 
 import com.github.mikephil.charting.components.YAxis;
@@ -79,8 +82,6 @@ public class MainActivity extends AppCompatActivity {
         BarChartGraph();
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar_actions, menu) ;
@@ -88,4 +89,23 @@ public class MainActivity extends AppCompatActivity {
         return true ;
     }
 
+    public void ClickSensor(View view) {
+        Intent intent = new Intent( this, SensorActivity.class);
+        startActivity(intent);
+    }
+
+    public void ClickHomeStatus(View view) {
+        Intent intent = new Intent( this, HomeStatus.class);
+        startActivity(intent);
+    }
+
+    public void ClickPattern(View view) {
+        Intent intent = new Intent( this, LifePatternActivity.class);
+        startActivity(intent);
+    }
+
+    public void ClickTagHistory(View view) {
+        Intent intent = new Intent( this, TagHistory.class);
+        startActivity(intent);
+    }
 }
