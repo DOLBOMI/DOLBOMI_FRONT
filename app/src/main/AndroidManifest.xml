@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.dolbomi">
 
     <application
@@ -13,20 +14,22 @@
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".HomeStatus"></activity>
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".PhysicalInputActivity"></activity>
+        <activity android:name=".MainActivity"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity android:name=".PhysicalInputActivity"
+            tools:ignore="Instantiatable"></activity>
         <activity android:name=".ChangeStatus"></activity>
         <activity android:name=".AdminMode"></activity>
+        <activity android:name=".LifePatternActivity"></activity>
         <activity android:name=".TagHistory" />
         <activity android:name=".ExerciseDetail"/>
         <activity
             android:name=".IntroActivity"
             android:theme="@style/Intro">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

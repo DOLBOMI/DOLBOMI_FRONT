@@ -46,32 +46,26 @@ public class MainActivity extends AppCompatActivity {
         entries.add(new BarEntry(1, x));
         entries.add(new BarEntry(0, 10000));
 
-        /*
-        for(int i=0; i < valList.size();i++){
+        /*for(int i=0; i < valList.size();i++){
             entries.add(new BarEntry((Integer) valList.get(i), i));
-        }
-        */
+        }*/
 
         BarDataSet depenses = new BarDataSet (entries, "권장 걸음 수 / 금일 걸음 수 "); // 변수로 받아서 넣어줘도 됨
         depenses.setAxisDependency(YAxis.AxisDependency.RIGHT);
         //barChart.setDescription();
 
-        /*
-        ArrayList<String> labels = new ArrayList<String>();
+        /*ArrayList<String> labels = new ArrayList<String>();
         for(int i=0; i < labelList.size(); i++){
             labels.add((String) labelList.get(i));
-        }
-         */
+        }*/
 
         BarData data = new BarData(depenses);
         //BarData data = new BarData(labels,depenses); // 라이브러리 v3.x 사용하면 에러 발생함
         depenses.setColors(ColorTemplate.LIBERTY_COLORS); //
 
-
         barChart.getXAxis().setDrawGridLines(false);
         barChart.getXAxis().setDrawAxisLine(false);
         barChart.getXAxis().setEnabled(false);
-
 
         barChart.setData(data);
         barChart.animateXY(1000,1000);
@@ -102,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(x+"걸음\n"+(x*0.37)+"Kcal");
 
         BarChartGraph();
-    }
 
         Button lifePatternButton = (Button) findViewById(R.id.lifePatternButton);
         Button tagHistoryButton = (Button) findViewById(R.id.tagHistoryButton);
@@ -140,8 +133,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     @Override
@@ -150,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
 
         return true ;
     }
-
 
     public boolean onOptionsItemSelected(MenuItem item) {
         //return super.onOptionsItemSelected(item);
@@ -164,7 +154,6 @@ public class MainActivity extends AppCompatActivity {
 
                 dialog.show();
 
-
                 Button cancel = dialog.findViewById(R.id.button8);
                 cancel.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -174,8 +163,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                /*
-                Button call_guardian = dialog.findViewById(R.id.imageButton2);
+                /*Button call_guardian = dialog.findViewById(R.id.imageButton2);
                 call_guardian.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -195,7 +183,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
                  */
-
                 return true;
 
             default:
@@ -206,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
 
     public void show(String str) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -227,21 +213,8 @@ public class MainActivity extends AppCompatActivity {
                 b_alert.dismiss();
             }
         });
-
         b_alert.show();
-
     }
-
-
-
-
-
-
-
-
-
-
-
 
     public void ClickSensor(View view) {
         Intent intent = new Intent( this, SensorActivity.class);
