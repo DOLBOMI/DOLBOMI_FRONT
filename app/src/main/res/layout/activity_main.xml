@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/green"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="379dp"
@@ -15,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
 
         <Button
             android:id="@+id/button5"
@@ -71,7 +83,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/lifePatternButton"
             android:layout_width="180dp"
             android:layout_height="140dp"
             android:layout_marginTop="15dp"
@@ -79,11 +91,12 @@
             android:layout_marginRight="20dp"
             android:text="패턴 보기"
             android:textSize="20dp"
+            android:onClick="ClickPattern"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/tagHistoryButton"
             android:layout_width="180dp"
             android:layout_height="140dp"
             android:layout_marginStart="20dp"
@@ -91,29 +104,32 @@
             android:layout_marginTop="15dp"
             android:text="태그 기록"
             android:textSize="20dp"
+            android:onClick="ClickTagHistory"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/MyHomeButton"
             android:layout_width="180dp"
             android:layout_height="140dp"
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:text="내 집 상태"
+            android:onClick="ClickHomeStatus"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/SensorButton"
             android:layout_width="180dp"
             android:layout_height="140dp"
             android:layout_marginStart="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginBottom="10dp"
             android:text="센서 관리"
+            android:onClick="ClickSensor"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

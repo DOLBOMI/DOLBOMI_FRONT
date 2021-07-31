@@ -1,7 +1,7 @@
 package com.example.dolbomi;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import androidx.appcompat.widget.Toolbar;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -50,10 +50,18 @@ public class HomeStatus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.status_home);
 
-        Button temp_btn = (Button) findViewById(R.id.temp_btn);
-        Button moist_btn = (Button) findViewById(R.id.moist_btn);
-        Button gas_btn = (Button) findViewById(R.id.gas_btn);
-        Button btn = (Button) findViewById(R.id.button);
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
+        toolbar.setTitle("내 집 상태");
+
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFFFF"));
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
+
+        Button temp_btn = (Button) findViewById(R.id.button1);
+        Button moist_btn = (Button) findViewById(R.id.button2);
+        Button gas_btn = (Button) findViewById(R.id.button3);
 
         temp_btn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -73,12 +81,7 @@ public class HomeStatus extends AppCompatActivity {
                 //lineGraph();
             }
         });
-        btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                //lineGraph();
-            }
-        });
+
 
     }
 
