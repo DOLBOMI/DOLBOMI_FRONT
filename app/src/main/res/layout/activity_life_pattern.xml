@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="7dp"
-                    android:text="침대 위 센서"
+                    android:text="침실 문 센서"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -188,7 +188,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar1"
+                            android:id="@+id/progressBar1_bedroom"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -249,7 +249,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar2"
+                            android:id="@+id/progressBar2_bathroom"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -310,7 +310,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar3"
+                            android:id="@+id/progressBar3_drug"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -349,7 +349,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="7dp"
-                    android:text="침실 문 센서"
+                    android:text="현관문 센서"
                     android:textColor="@color/black"
                     android:textSize="15sp"/>
 
@@ -363,7 +363,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="20dp"
-                        android:src="@drawable/bed_round"
+                        android:src="@drawable/door_icon"
                         tools:ignore="MissingConstraints" />
 
                     <FrameLayout
@@ -371,7 +371,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar4"
+                            android:id="@+id/progressBar4_frontdoor"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -432,7 +432,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar5"
+                            android:id="@+id/progressBar5_refrigerator"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
