@@ -57,10 +57,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="월"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/tueButton"
@@ -70,10 +69,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="화"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/wedButton"
@@ -83,10 +81,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="수"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/thuButton"
@@ -94,12 +91,11 @@
             android:layout_height="44dp"
             android:layout_marginTop="150dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/day_button"
             android:text="목"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/friButton"
@@ -109,10 +105,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="금"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/satButton"
@@ -122,10 +117,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="토"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/sunButton"
@@ -135,10 +129,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="일"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
     </LinearLayout>
 
 

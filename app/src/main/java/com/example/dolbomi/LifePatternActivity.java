@@ -3,6 +3,7 @@ package com.example.dolbomi;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -344,7 +345,7 @@ public class LifePatternActivity extends AppCompatActivity {
                 case 0: getLifePatternValue_1();
                     this.count++;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -352,7 +353,7 @@ public class LifePatternActivity extends AppCompatActivity {
                 case 1: getLifePatternValue_2();
                     this.count++;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -360,7 +361,7 @@ public class LifePatternActivity extends AppCompatActivity {
                 case 2: getLifePatternValue_3();
                     this.count++;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -368,7 +369,7 @@ public class LifePatternActivity extends AppCompatActivity {
                 case 3: getLifePatternValue_4();
                     this.count++;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -376,7 +377,7 @@ public class LifePatternActivity extends AppCompatActivity {
                 case 4: getLifePatternValue_5();
                     this.count++;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -384,7 +385,7 @@ public class LifePatternActivity extends AppCompatActivity {
                 case 5: getLifePatternValue_6();
                     this.count++;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -392,7 +393,7 @@ public class LifePatternActivity extends AppCompatActivity {
                 case 6: getLifePatternValue_7();
                     this.count++;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -400,49 +401,13 @@ public class LifePatternActivity extends AppCompatActivity {
                 case 7: getTodayLifePatternValue();
                     this.count++;
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(200);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                     break;
             }
         }
-//        int count = 0;
-//
-//        while(true) {
-//            if (count == 8) {
-//                break;
-//            }
-//            synchronized(this) {
-//                switch(count) {
-//                    case 0: {getLifePatternValue_1(); count++; }
-//                    case 1: {getLifePatternValue_2(); count++;}
-//                    case 2: {getLifePattenValue_3(); count++;}
-//                    case 3: {getLifePatternValue_4(); count++;}
-//                    case 4: {getLifePatternValue_5(); count++;}
-//                    case 5: {getLifePatternValue_6(); count++;}
-//                    case 6: {getLifePatternValue_7(); count++;}
-//                    case 7: {getTodayLifePatternValue(); count++;}
-//                }
-//            }
-//        }
-
-
-
-
-//        getLifePatternValue_2();
-//
-//        getLifePatternValue_3();
-//
-//        getLifePatternValue_4();
-//
-//        getLifePatternValue_5();
-//
-//        getLifePatternValue_6();
-//
-//        getLifePatternValue_7();
-//
-//        getTodayLifePatternValue();
 
 
     }
@@ -993,32 +958,32 @@ public class LifePatternActivity extends AppCompatActivity {
 
         if (dayOfWeekNumber == 1) {
             // 월요일
-            monButton.setBackground(Drawable.createFromPath("@drawable/today_button"));
-            monButton.setTextColor(Color.BLACK);
+            monButton.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.today_button));
+            monButton.setTextColor(Color.WHITE);
         } else if (dayOfWeekNumber == 2) {
             // 화요일
-            tueButton.setBackground(Drawable.createFromPath("@drawable/today_button"));
-            tueButton.setTextColor(Color.BLACK);
+            tueButton.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.today_button));
+            tueButton.setTextColor(Color.WHITE);
         } else if (dayOfWeekNumber == 3) {
             // 수요일
-            wedButton.setBackground(Drawable.createFromPath("@drawable/today_button"));
-            wedButton.setTextColor(Color.BLACK);
+            wedButton.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.today_button));
+            wedButton.setTextColor(Color.WHITE);
         } else if (dayOfWeekNumber == 4) {
             // 목요일
-            thuButton.setBackground(Drawable.createFromPath("@drawable/today_button"));
-            thuButton.setTextColor(Color.BLACK);
+            thuButton.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.today_button));
+            thuButton.setTextColor(Color.WHITE);
         } else if (dayOfWeekNumber == 5) {
             // 금요일
-            friButton.setBackground(Drawable.createFromPath("@drawable/today_button"));
-            friButton.setTextColor(Color.BLACK);
+            friButton.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.today_button));
+            friButton.setTextColor(Color.WHITE);
         } else if (dayOfWeekNumber == 6) {
             // 토요일
-            satButton.setBackground(Drawable.createFromPath("@drawable/today_button"));
-            satButton.setTextColor(Color.BLACK);
+            satButton.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.today_button));
+            satButton.setTextColor(Color.WHITE);
         } else if (dayOfWeekNumber == 7) {
             // 일요일
-            sunButton.setBackground(Drawable.createFromPath("@drawable/today_button"));
-            sunButton.setTextColor(Color.BLACK);
+            sunButton.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.today_button));
+            sunButton.setTextColor(Color.WHITE);
         }
 
         TextView dateTextView = (TextView) findViewById(R.id.dataTextView);
