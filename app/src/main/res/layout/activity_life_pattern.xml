@@ -34,7 +34,7 @@
         android:id="@+id/dataTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2021.03.29"
+        android:text="2021-00-00"
         app:layout_constraintTop_toBottomOf="@+id/todayTextView"
         android:textColor="#146A59"
         android:textSize="30sp"
@@ -57,10 +57,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="월"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/tueButton"
@@ -70,10 +69,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="화"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/wedButton"
@@ -83,10 +81,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="수"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/thuButton"
@@ -94,12 +91,11 @@
             android:layout_height="44dp"
             android:layout_marginTop="150dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/day_button"
             android:text="목"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/friButton"
@@ -109,10 +105,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="금"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/satButton"
@@ -122,10 +117,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="토"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/sunButton"
@@ -135,10 +129,9 @@
             android:layout_marginLeft="10dp"
             android:background="@drawable/day_button"
             android:text="일"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="#146A59"/>
+            android:textStyle="bold"/>
     </LinearLayout>
 
 
@@ -166,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="7dp"
-                    android:text="침대 위 센서"
+                    android:text="침실 문 센서"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -188,7 +181,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar1"
+                            android:id="@+id/progressBar1_bedroom"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -249,7 +242,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar2"
+                            android:id="@+id/progressBar2_bathroom"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -310,7 +303,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar3"
+                            android:id="@+id/progressBar3_drug"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -349,7 +342,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="7dp"
-                    android:text="침실 문 센서"
+                    android:text="현관문 센서"
                     android:textColor="@color/black"
                     android:textSize="15sp"/>
 
@@ -363,7 +356,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_marginLeft="20dp"
-                        android:src="@drawable/bed_round"
+                        android:src="@drawable/door_icon"
                         tools:ignore="MissingConstraints" />
 
                     <FrameLayout
@@ -371,7 +364,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar4"
+                            android:id="@+id/progressBar4_frontdoor"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
@@ -432,7 +425,7 @@
                         android:layout_height="wrap_content">
 
                         <ProgressBar
-                            android:id="@+id/progressBar5"
+                            android:id="@+id/progressBar5_refrigerator"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
