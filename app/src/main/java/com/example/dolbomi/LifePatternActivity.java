@@ -64,6 +64,8 @@ public class LifePatternActivity extends AppCompatActivity {
     int totalBedRoomCount = 0;
     int totalRefrigeratorCount = 0;
 
+    int count = 0;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -331,25 +333,116 @@ public class LifePatternActivity extends AppCompatActivity {
         todayDate_6 = year_ + "-" + month_s_6 + "-" + day_s_6;
         todayDate_7 = year_ + "-" + month_s_7 + "-" + day_s_7;
 
-
-
         getLifePatternValue();
 
-        getLifePatternValue_1();
+        getLifePatternValue1to7(count);
+    }
 
-        getLifePatternValue_2();
+    synchronized private void getLifePatternValue1to7(int count){
+        for(int i=0; i<8; i++){
+            switch(this.count){
+                case 0: getLifePatternValue_1();
+                    this.count++;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 1: getLifePatternValue_2();
+                    this.count++;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 2: getLifePatternValue_3();
+                    this.count++;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 3: getLifePatternValue_4();
+                    this.count++;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 4: getLifePatternValue_5();
+                    this.count++;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 5: getLifePatternValue_6();
+                    this.count++;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 6: getLifePatternValue_7();
+                    this.count++;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 7: getTodayLifePatternValue();
+                    this.count++;
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+        }
+//        int count = 0;
+//
+//        while(true) {
+//            if (count == 8) {
+//                break;
+//            }
+//            synchronized(this) {
+//                switch(count) {
+//                    case 0: {getLifePatternValue_1(); count++; }
+//                    case 1: {getLifePatternValue_2(); count++;}
+//                    case 2: {getLifePattenValue_3(); count++;}
+//                    case 3: {getLifePatternValue_4(); count++;}
+//                    case 4: {getLifePatternValue_5(); count++;}
+//                    case 5: {getLifePatternValue_6(); count++;}
+//                    case 6: {getLifePatternValue_7(); count++;}
+//                    case 7: {getTodayLifePatternValue(); count++;}
+//                }
+//            }
+//        }
 
-        getLifePatternValue_3();
 
-        getLifePatternValue_4();
 
-        getLifePatternValue_5();
 
-        getLifePatternValue_6();
-
-        getLifePatternValue_7();
-
-        getTodayLifePatternValue();
+//        getLifePatternValue_2();
+//
+//        getLifePatternValue_3();
+//
+//        getLifePatternValue_4();
+//
+//        getLifePatternValue_5();
+//
+//        getLifePatternValue_6();
+//
+//        getLifePatternValue_7();
+//
+//        getTodayLifePatternValue();
 
 
     }
