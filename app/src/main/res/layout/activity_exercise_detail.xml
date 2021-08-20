@@ -84,10 +84,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:gravity="center"
-                android:text="평균 걸음 수" />
+                android:text="걸음 수" />
 
             <TextView
-                android:id="@+id/textView9"
+                android:id="@+id/tvStepDetector"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
@@ -111,10 +111,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:gravity="center"
-                android:text="평균 운동시간" />
+                android:text="운동시간" />
 
             <TextView
-                android:id="@+id/textView11"
+                android:id="@+id/tvTimeDif"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
@@ -138,10 +138,10 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:gravity="center"
-                android:text="평균 이동거리" />
+                android:text="이동거리" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/tvDistDif"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp"
@@ -166,7 +166,7 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:gravity="center"
-                android:text="평균 소모한 칼로리" />
+                android:text="소모한 칼로리" />
 
             <TextView
                 android:id="@+id/textView15"
