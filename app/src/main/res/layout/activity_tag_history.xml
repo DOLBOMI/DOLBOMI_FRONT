@@ -64,7 +64,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="3dp"
                 android:background="@drawable/round_rectangle"
-                app:srcCompat="@drawable/all_w_64" />
+                android:onClick="onClick"
+                app:srcCompat="@drawable/all_w_64"
+                tools:ignore="OnClick" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
@@ -72,8 +74,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="3dp"
                 android:background="@drawable/round_rectangle"
-
-                app:srcCompat="@drawable/bed_64" />
+                android:onClick="onClick"
+                app:srcCompat="@drawable/bed_64"
+                tools:ignore="OnClick" />
 
             <ImageButton
                 android:id="@+id/imageButton3"
@@ -82,7 +85,9 @@
                 android:layout_marginRight="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_rectangle"
-                app:srcCompat="@drawable/lavatory_64" />
+                android:onClick="onClick"
+                app:srcCompat="@drawable/lavatory_64"
+                tools:ignore="OnClick" />
 
             <ImageButton
                 android:id="@+id/imageButton5"
@@ -91,7 +96,9 @@
                 android:layout_marginRight="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_rectangle"
-                app:srcCompat="@drawable/pill_64" />
+                android:onClick="onClick"
+                app:srcCompat="@drawable/pill_64"
+                tools:ignore="OnClick" />
 
             <ImageButton
                 android:id="@+id/imageButton7"
@@ -100,7 +107,9 @@
                 android:layout_marginRight="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_rectangle"
-                app:srcCompat="@drawable/smart_refrigerator_64" />
+                android:onClick="onClick"
+                app:srcCompat="@drawable/smart_refrigerator_64"
+                tools:ignore="OnClick" />
 
             <ImageButton
                 android:id="@+id/imageButton13"
@@ -109,8 +118,9 @@
                 android:layout_marginRight="3dp"
                 android:layout_weight="1"
                 android:background="@drawable/round_rectangle"
-                app:srcCompat="@drawable/beds_64" />
+                app:srcCompat="@drawable/door_64" />
 
+            <!--
             <ImageButton
                 android:id="@+id/imageButton14"
                 android:layout_width="wrap_content"
@@ -128,19 +138,21 @@
                 android:layout_weight="1"
                 android:background="@drawable/round_rectangle"
                 app:srcCompat="@drawable/refrigerator_64" />
-
+-->
 
         </LinearLayout>
     </HorizontalScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="230dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="380dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@id/constraintLayout5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
 
         <TableLayout
             android:id="@+id/tableLayout1"
@@ -162,9 +174,9 @@
 
                 <TextView
                     android:id="@+id/textView_time"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="1dp"
+                    android:layout_marginLeft="0.5dp"
                     android:layout_marginTop="1dp"
                     android:layout_marginRight="0.5dp"
                     android:layout_marginBottom="1dp"
@@ -175,11 +187,11 @@
 
                 <TextView
                     android:id="@+id/textView_tag"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="0.5dp"
                     android:layout_marginTop="1dp"
-                    android:layout_marginRight="1dp"
+                    android:layout_marginRight="0.5dp"
                     android:layout_marginBottom="1dp"
                     android:background="#C5C5C5"
                     android:gravity="center"
@@ -228,656 +240,7 @@
                         tools:layout_editor_absoluteY="1dp" />
 
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView11"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="21:37"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView12"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="침실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView13"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="21:35"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView14"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="화장실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView15"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="21:11"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView16"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="화장실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView17"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="21:03"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView18"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="냉장고"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView19"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="20:45"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView20"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="침실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView21"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="20:04"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView22"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="약"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView23"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="20:02"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView24"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="냉장고"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView25"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="18:50"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView26"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="화장실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView27"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="18:46"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView28"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="화장실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView29"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="18:45"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView30"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="현관문"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView31"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="14:24"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView32"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="현관문"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView33"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="14:15"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView34"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="침실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView35"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="14:13"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView36"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="화장실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView37"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="13:50"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView38"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="화장실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView39"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="13:12"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView40"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="냉장고"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView41"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="12:03"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView42"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="약"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView43"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="10:50"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView44"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="냉장고"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView45"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="10:38"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView46"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="화장실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView47"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="10:33"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView48"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="화장실"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView49"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="10:31"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView50"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="냉장고"
-                            android:textSize="23dp" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/textView51"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="10:24"
-                            android:textSize="23dp" />
-
-                        <TextView
-                            android:id="@+id/textView52"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="0.5dp"
-                            android:layout_marginTop="0.5dp"
-                            android:layout_marginRight="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#ffffff"
-                            android:gravity="center"
-                            android:text="침실"
-                            android:textSize="23dp" />
-                    </TableRow>
+                    <!--
 
                     <View
                         android:id="@+id/view2"
@@ -887,6 +250,7 @@
                         tools:layout_editor_absoluteX="1dp"
                         tools:layout_editor_absoluteY="1dp" />
 
+                    -->
                 </TableLayout>
 
 
@@ -894,11 +258,26 @@
         </ScrollView>
 
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
-
-
-
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="새로고침"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
