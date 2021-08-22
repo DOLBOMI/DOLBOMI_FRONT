@@ -1,6 +1,7 @@
 package com.example.dolbomi;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
@@ -15,10 +16,9 @@ import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +29,11 @@ import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,6 +54,10 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
     String serviceData;
     TextView countText;
 
+    private DatabaseReference mDatabase;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+    private DatabaseReference databaseReference = database.getReference();
     private LocationManager locationManager;
     private Location mLastlocation = null;
     private double totalLocation = 0;
@@ -91,6 +100,8 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_detail);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        setValue();
 
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setTitle("상세 데이터");
@@ -113,6 +124,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
             IntentFilter mainFilter = new IntentFilter("make.a.yong.manbo");
             registerReceiver(receiver, mainFilter);
             startService(manboService);
+            setValue();
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), e.getMessage(),
                     Toast.LENGTH_LONG).show();
@@ -212,6 +224,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
         }
         // 현재위치를 지난 위치로 변경
         mLastlocation = location;
+        setValue();
     }
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -260,5 +273,34 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
                 return;
             }
         }
+    }
+
+    private void getValue() {
+        final DatabaseReference bathroomValue = mDatabase.child("2021-7-31").child("Home1").child("humidity");
+
+        setContentView(R.layout.activity_firebase_base);
+        TextView butt = (TextView) findViewById(R.id.textView53);
+
+        bathroomValue.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()) {
+                    Long bathValue = (Long) snapshot.getValue();
+
+                    butt.setText(bathValue.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+    private void setValue(){
+        databaseReference.child("Home1").child("2021-8-23").child("Step").setValue(serviceData);
+        databaseReference.child("Home1").child("2021-8-23").child("ExerciseTime").setValue(deltaTime);
+        databaseReference.child("Home1").child("2021-8-23").child("Distance").setValue(totalLocation);
+        databaseReference.child("Home1").child("2021-8-23").child("Calorie").setValue(calorie);
     }
 }
