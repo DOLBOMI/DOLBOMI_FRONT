@@ -34,6 +34,11 @@
             android:theme="@style/Intro">
 
         </activity>
+        <service android:name=".StepCheckService" android:enabled="true">
+            <intent-filter>
+                <action android:name="app.manbo.Service"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
