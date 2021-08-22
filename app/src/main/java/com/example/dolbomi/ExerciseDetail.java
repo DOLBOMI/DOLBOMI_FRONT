@@ -178,6 +178,9 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
                 // 날짜가 변경된 경우 해야 될 작업
                 unregisterReceiver(receiver);
                 stopService(manboService);
+                deltaTime = 0;
+                calorie = 0;
+                totalLocation = 0;
             }
             Log.i("PlayignReceiver", "IN");
             serviceData = intent.getStringExtra("stepService");
@@ -187,6 +190,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
     }
     @Override
     public void onLocationChanged(Location location) {
+
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 
         //  getSpeed() 함수를 이용하여 속도를 계산
