@@ -35,6 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2021-00-00"
+        android:onClick="showDatePicker2"
         app:layout_constraintTop_toBottomOf="@+id/todayTextView"
         android:textColor="#146A59"
         android:textSize="30sp"
