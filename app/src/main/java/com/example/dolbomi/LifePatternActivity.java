@@ -5,10 +5,12 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.DialogFragment;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -71,43 +73,81 @@ public class LifePatternActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        processDatePickerResult(year_, month_, day_);
+
+    }
+
+    public void showDatePicker2(View view) {
+        DatePickerFragment2 newFragment = new DatePickerFragment2();
+        newFragment.show(getSupportFragmentManager(),"datePicker");
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void processDatePickerResult(int year, int month, int day){
         setContentView(R.layout.activity_life_pattern);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        today = LocalDate.of(year_, month_, day_);
+        date.set(Calendar.YEAR, year);
+        date.set(Calendar.MONTH, month-1);
+        date.set(Calendar.DATE, day);
+        date1.set(Calendar.YEAR, year);
+        date1.set(Calendar.MONTH, month-1);
+        date1.set(Calendar.DATE, day);
+        date2.set(Calendar.YEAR, year);
+        date2.set(Calendar.MONTH, month-1);
+        date2.set(Calendar.DATE, day);
+        date3.set(Calendar.YEAR, year);
+        date3.set(Calendar.MONTH, month-1);
+        date3.set(Calendar.DATE, day);
+        date4.set(Calendar.YEAR, year);
+        date4.set(Calendar.MONTH, month-1);
+        date4.set(Calendar.DATE, day);
+        date5.set(Calendar.YEAR, year);
+        date5.set(Calendar.MONTH, month-1);
+        date5.set(Calendar.DATE, day);
+        date6.set(Calendar.YEAR, year);
+        date6.set(Calendar.MONTH, month-1);
+        date6.set(Calendar.DATE, day);
+        date7.set(Calendar.YEAR, year);
+        date7.set(Calendar.MONTH, month-1);
+        date7.set(Calendar.DATE, day);
+
+        today = LocalDate.of(year, month, day);
+
         dayOfWeek  = today.getDayOfWeek();
         dayOfWeekNumber = dayOfWeek.getValue();
 
         if (hour_ >= 24) {
             hour_ -= 24;
-            day_ += 1;
+            day += 1;
             dayOfWeekNumber += 1;
             if (dayOfWeekNumber == 8) {
                 dayOfWeekNumber = 1;
             }
         }
 
-        if(month_ < 10) {
-            month_s = "0" + month_;
+        if(month < 10) {
+            month_s = "0" + month;
         } else {
-            month_s = String.valueOf(month_);
+            month_s = String.valueOf(month);
         }
-        if(day_ < 10) {
-            day_s = "0" + day_;
+        if(day < 10) {
+            day_s = "0" + day;
         } else {
-            day_s = String.valueOf(day_);
+            day_s = String.valueOf(day);
         }
 
         int flag = 0; // 전 달로 넘어갔는지 확인 플래그
-        date1.add(Calendar.DATE, -1);
+        date1.add(date1.DATE, -1);
         int day_1 = date1.get(Calendar.DAY_OF_MONTH);
         int hour_1 = date1.get(Calendar.HOUR_OF_DAY) + 9;
         // 전 달로 넘어갈 경우
         int month_1;
-        if (day_1 > day_ && flag == 0) {
-            month_1 = month_ - 1;
-            month_ = month_1;
+        if (day_1 > day && flag == 0) {
+            month_1 = month - 1;
+            month = month_1;
             if(month_1 < 10) {
                 month_s_1 = "0" + month_1;
             } else {
@@ -132,14 +172,14 @@ public class LifePatternActivity extends AppCompatActivity {
             day_s_1 = String.valueOf(day_1);
         }
 
-        date2.add(Calendar.DATE, -2);
+        date2.add(date2.DATE, -2);
         int day_2 = date2.get(Calendar.DAY_OF_MONTH);
         int hour_2 = date1.get(Calendar.HOUR_OF_DAY) + 9;
         // 전 달로 넘어갈 경우
         int month_2;
         if (day_2 > day_ && flag == 0) {
             month_2 = month_ - 1;
-            month_ = month_2;
+            month = month_2;
             if(month_2 < 10) {
                 month_s_2 = "0" + month_2;
             } else {
@@ -164,14 +204,14 @@ public class LifePatternActivity extends AppCompatActivity {
             day_s_2 = String.valueOf(day_2);
         }
 
-        date3.add(Calendar.DATE, -3);
+        date3.add(date3.DATE, -3);
         int day_3 = date3.get(Calendar.DAY_OF_MONTH);
         int hour_3 = date1.get(Calendar.HOUR_OF_DAY) + 9;
         // 전 달로 넘어갈 경우
         int month_3;
         if (day_3 > day_ && flag == 0) {
             month_3 = month_ - 1;
-            month_ = month_3;
+            month = month_3;
             if(month_3 < 10) {
                 month_s_3 = "0" + month_3;
             } else {
@@ -196,14 +236,14 @@ public class LifePatternActivity extends AppCompatActivity {
             day_s_3 = String.valueOf(day_3);
         }
 
-        date4.add(Calendar.DATE, -4);
+        date4.add(date4.DATE, -4);
         int day_4 = date4.get(Calendar.DAY_OF_MONTH);
         int hour_4 = date1.get(Calendar.HOUR_OF_DAY) + 9;
         // 전 달로 넘어갈 경우
         int month_4;
         if (day_4 > day_ && flag == 0) {
             month_4 = month_ - 1;
-            month_ = month_4;
+            month = month_4;
             if(month_4 < 10) {
                 month_s_4 = "0" + month_4;
             } else {
@@ -228,14 +268,14 @@ public class LifePatternActivity extends AppCompatActivity {
             day_s_4 = String.valueOf(day_4);
         }
 
-        date5.add(Calendar.DATE, -5);
+        date5.add(date5.DATE, -5);
         int day_5 = date5.get(Calendar.DAY_OF_MONTH);
         int hour_5 = date1.get(Calendar.HOUR_OF_DAY) + 9;
         // 전 달로 넘어갈 경우
         int month_5;
         if (day_5 > day_ && flag == 0) {
             month_5 = month_ - 1;
-            month_ = month_5;
+            month = month_5;
             if(month_5 < 10) {
                 month_s_5 = "0" + month_5;
             } else {
@@ -260,14 +300,14 @@ public class LifePatternActivity extends AppCompatActivity {
             day_s_5 = String.valueOf(day_5);
         }
 
-        date6.add(Calendar.DATE, -6);
+        date6.add(date6.DATE, -6);
         int day_6 = date6.get(Calendar.DAY_OF_MONTH);
         int hour_6 = date1.get(Calendar.HOUR_OF_DAY) + 9;
         // 전 달로 넘어갈 경우
         int month_6;
         if (day_6 > day_ && flag == 0) {
             month_6 = month_ - 1;
-            month_ = month_6;
+            month = month_6;
             if(month_6 < 10) {
                 month_s_6 = "0" + month_6;
             } else {
@@ -292,14 +332,14 @@ public class LifePatternActivity extends AppCompatActivity {
             day_s_6 = String.valueOf(day_6);
         }
 
-        date7.add(Calendar.DATE, -7);
+        date7.add(date7.DATE, -7);
         int day_7 = date7.get(Calendar.DAY_OF_MONTH);
         int hour_7 = date1.get(Calendar.HOUR_OF_DAY) + 9;
         // 전 달로 넘어갈 경우
         int month_7;
         if (day_7 > day_ && flag == 0) {
             month_7 = month_ - 1;
-            month_ = month_7;
+            month = month_7;
             if(month_7 < 10) {
                 month_s_7 = "0" + month_7;
             } else {
@@ -334,9 +374,13 @@ public class LifePatternActivity extends AppCompatActivity {
         todayDate_6 = year_ + "-" + month_s_6 + "-" + day_s_6;
         todayDate_7 = year_ + "-" + month_s_7 + "-" + day_s_7;
 
-        getLifePatternValue();
+        getLifePatternValue(dayOfWeekNumber);
 
+        count = 0;
         getLifePatternValue1to7(count);
+
+        TextView dataTextView = (TextView) findViewById(R.id.dataTextView);
+        dataTextView.setText(todayDate);
     }
 
     synchronized private void getLifePatternValue1to7(int count){
@@ -945,13 +989,13 @@ public class LifePatternActivity extends AppCompatActivity {
 
     }
 
-    private void getLifePatternValue() {
+    private void getLifePatternValue(int dayOfWeekNumber) {
         setContentView(R.layout.activity_life_pattern);
 
         Button monButton = (Button) findViewById(R.id.monButton);
         Button tueButton = (Button) findViewById(R.id.tueButton);
         Button wedButton = (Button) findViewById(R.id.wedButton);
-        Button thuButton = (Button) findViewById(R.id.monButton);
+        Button thuButton = (Button) findViewById(R.id.thuButton);
         Button friButton = (Button) findViewById(R.id.friButton);
         Button satButton = (Button) findViewById(R.id.satButton);
         Button sunButton = (Button) findViewById(R.id.sunButton);
@@ -985,10 +1029,6 @@ public class LifePatternActivity extends AppCompatActivity {
             sunButton.setBackgroundDrawable(ContextCompat.getDrawable(this, R.drawable.today_button));
             sunButton.setTextColor(Color.WHITE);
         }
-
-        TextView dateTextView = (TextView) findViewById(R.id.dataTextView);
-        // 오늘 날짜 보이기
-        dateTextView.setText(todayDate);
 
     }
 
