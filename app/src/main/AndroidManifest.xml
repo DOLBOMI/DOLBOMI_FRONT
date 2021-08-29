@@ -4,6 +4,8 @@
     package="com.example.dolbomi">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -53,10 +55,15 @@
             android:theme="@style/Intro">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name=".StepCheckService" android:enabled="true">
+            <intent-filter>
+                <action android:name="app.manbo.Service"/>
+            </intent-filter>
+        </service>
 
         <!-- FCM 설정 추가 -->
         <service
@@ -67,6 +74,6 @@
                 <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT" />-->
             </intent-filter>
         </service>
-    </application>
 
+    </application>
 </manifest>
