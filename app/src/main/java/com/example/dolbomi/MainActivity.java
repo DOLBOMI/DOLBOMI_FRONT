@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         manboService = new Intent(this, StepCheckService.class);
         receiver = new PlayingReceiver();
-        countText = (TextView) findViewById(R.id.stepText);
+        //countText = (TextView) findViewById(R.id.stepText);
         try {
             IntentFilter mainFilter = new IntentFilter("make.a.yong.manbo");
             registerReceiver(receiver, mainFilter);
@@ -129,9 +129,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             Toast.makeText(getApplicationContext(), e.getMessage(),
                     Toast.LENGTH_LONG).show();
         }
-        tvTimeDif = (TextView)findViewById(R.id.tvTimeDif);
+        /*tvTimeDif = (TextView)findViewById(R.id.tvTimeDif);
         tvDistDif = (TextView)findViewById(R.id.tvDistDif);
-        tvCalDif = (TextView)findViewById(R.id.calorie);
+        tvCalDif = (TextView)findViewById(R.id.calorie);*/
         //권한 체크
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
@@ -154,12 +154,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
 
-        TextView textView = (TextView)findViewById(R.id.textView);
+        //TextView textView = (TextView)findViewById(R.id.textView);
 
-        Log.d(this.getClass().getName(), (String)textView.getText());
+        //Log.d(this.getClass().getName(), (String)textView.getText());
 
-        textView.setText(serviceData+"걸음\n"+(calorie*0.37)+"Kcal");
-
+        //textView.setText(serviceData+"걸음\n"+(calorie*0.37)+"Kcal");
+        //countText.setText(serviceData);
         BarChartGraph();
 
         Button lifePatternButton = (Button) findViewById(R.id.lifePatternButton);
@@ -316,6 +316,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             Log.i("PlayignReceiver", "IN");
             serviceData = intent.getStringExtra("stepService");
             //countText.setText(serviceData);
+            TextView textView = (TextView)findViewById(R.id.textView);
+            textView.setText(serviceData+"걸음\n");
             //Toast.makeText(getApplicationContext(), "Playing game", Toast.LENGTH_SHORT).show();
         }
     }
@@ -332,6 +334,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             //시간 간격
             deltaTime += (location.getTime() - mLastlocation.getTime()) / 1000.0;
             calorie += deltaTime/30.0;
+            TextView textView = (TextView)findViewById(R.id.calorie1);
+            textView.setText((calorie*0.37)+"Kcal");
+            int rouneded_time = (int) Math.round(deltaTime);
+
             //tvCalDif.setText(calorie + "kcal");
             //tvTimeDif.setText((deltaTime/60) + " 분");  // Time Difference
             totalLocation += mLastlocation.distanceTo(location);
@@ -420,9 +426,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         });
     }
     private void setValue(){
-        databaseReference.child("Home1").child("2021-8-24").child("Step").setValue(serviceData);
-        databaseReference.child("Home1").child("2021-8-24").child("ExerciseTime").setValue(deltaTime);
-        databaseReference.child("Home1").child("2021-8-24").child("Distance").setValue(totalLocation);
-        databaseReference.child("Home1").child("2021-8-24").child("Calorie").setValue(calorie);
+        databaseReference.child("Home1").child("2021-08-24").child("Step").setValue(serviceData);
+        databaseReference.child("Home1").child("2021-08-24").child("ExerciseTime").setValue(deltaTime);
+        databaseReference.child("Home1").child("2021-08-24").child("Distance").setValue(totalLocation);
+        databaseReference.child("Home1").child("2021-08-24").child("Calorie").setValue(calorie);
     }
 }
