@@ -35,6 +35,11 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     Dialog dialog;
@@ -82,9 +87,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Get token
+        Post post = new Post("token이다","title이다", "body다");
+        RetrofitAPI retrofitAPI = ApiClient.getClient().create(RetrofitAPI.class);
+
+        Call<Post> call = retrofitAPI.getJsonString(post);
+        //final ObjectMapper mapper = new ObjectMapper();
+        call.enqueue(new Callback<Post>() {
+            @Override
+            public void onResponse(Call<Post> call, Response<Post> response) {
+                try {
+                    Log.d("TEST1", response.body().toString());
+                    Post post= response.body();
+                    Log.d("TEST2", post.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Post> call, Throwable t) {
+                Log.d("Fail", t.toString());
+            }
+        });
+
+
+            // Get token
         // [START log_reg_token]
-        FirebaseMessaging.getInstance().getToken()
+        /*FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
@@ -101,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d(TAG, msg);
                         //Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
         // [END log_reg_token]
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
