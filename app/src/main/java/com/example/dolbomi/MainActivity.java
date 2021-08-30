@@ -2,15 +2,30 @@ package com.example.dolbomi;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.PatternMatcher;
 import android.util.Log;
@@ -29,21 +44,61 @@ import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import com.github.mikephil.charting.charts.BarChart;
+import java.util.Date;
+import java.util.TimeZone;
 
-public class MainActivity extends AppCompatActivity {
+import com.github.mikephil.charting.charts.BarChart;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
+import com.google.gson.JsonObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import com.google.firebase.messaging.FirebaseMessaging;
+
+
+
+public class MainActivity extends AppCompatActivity implements LocationListener {
     Dialog dialog;
     BarChart barChart;
-    int x = 7330;
+    //int x = 7330;
 
+    Intent manboService;
+    BroadcastReceiver receiver;
+    String serviceData;
+    TextView countText;
+
+    private DatabaseReference mDatabase;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+    private DatabaseReference databaseReference = database.getReference();
+    private LocationManager locationManager;
+    private Location mLastlocation = null;
+    private double totalLocation = 0;
+    private double deltaTime = 0;
+    private TextView tvTimeDif, tvDistDif, tvCalDif;
+    private double speed;
+    private double calorie = 0;
+
+    private static final String TAG = "MainActivity ";
     //public void BarChartGraph(ArrayList<String> labelList, ArrayList<Integer> valList) {
     public void BarChartGraph() {
         // BarChart 메소드
 
         barChart=findViewById(R.id.bar_chart);
         ArrayList<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(1, x));
+        entries.add(new BarEntry(1, com.example.dolbomi.StepValue.Step));
         entries.add(new BarEntry(0, 10000));
 
         /*for(int i=0; i < valList.size();i++){
@@ -71,14 +126,139 @@ public class MainActivity extends AppCompatActivity {
         barChart.animateXY(1000,1000);
         barChart.invalidate();
     }
+/*
+    public void push_notification() {
+        //푸시 알림
+        String channelId = "Channel ID";
+
+        NotificationCompat.Builder notificationBuilder =
+                new NotificationCompat.Builder(this, channelId)
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("운동량 부족!")
+                        .setContentText("오늘은 평소보다 운동량이 적은 것 같아요! 더 움직여 보세요 :)")
+                        .setAutoCancel(true);
+        //.setFullScreenIntent(pendingIntent, true);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelName = "Channel Name";
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        notificationManager.notify(0, notificationBuilder.build());
+    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+/*
+        TimeZone tz;
+        long now = System.currentTimeMillis();
+        SimpleDateFormat time = new SimpleDateFormat("hh");
+        tz = TimeZone.getTimeZone("Asia/Seoul");
+        time.setTimeZone(tz);
+
+        Date date = new Date(now);
+        String getTime = time.format(date);
+        // Log.d("현재 시간", getTime);
+        SimpleDateFormat day = new SimpleDateFormat("yyyy-MM-dd");
+        String getDay = day.format(date);
+
+        //final DatabaseReference calorieValue = mDatabase.child("Home1").child(getDay).child("Calorie");
+        Log.d("시간", getTime);
+        if (getTime.equals("08")) {
+            Log.d("같음", getTime);
+
+        }
+        if (getTime == "08") {
+            Log.d("시간일때 푸시드러오는 로그", getTime);
+
+        }*/
+      //  RemoteMessage rm = new RemoteMessage()
+        // The topic name can be optionally prefixed with "/topics/".
+        //String topic = "highScores";
+
+
+ /*       FirebaseMessaging fm = FirebaseMessaging.getInstance();
+        fm.send(new RemoteMessage.Builder("758940348113" + "@fcm.googleapis.com")
+                //.setMessageId(Integer.toString(messageId))
+                .addData("my_message", "운동량 부족")
+                .addData("my_action","SAY_HELLO")
+                .build());*/
+/*
+        RemoteMessage message = new RemoteMessage(bundle);
+
+        RemoteMessage rm = RemoteMessage.setTitle("")
+        MyFirebaseMessagingService fcm = new MyFirebaseMessagingService();
+        fcm.onMessageReceived(fm);
+*/
+
+        // Send a message to the devices subscribed to the provided topic.
+        //String response = FirebaseMessaging.getInstance().send(message);
+        // Response is a message ID string.
+        //System.out.println("Successfully sent message: " + response);
+
+        // Get token
+        // [START log_reg_token]
+        //MyFirebaseMessagingService fcm = new MyFirebaseMessagingService();
+        /*FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        String token = task.getResult();
+
+                        // Log and toast
+                        String msg = getString(R.string.msg_token_fmt, token);
+                        Log.d(TAG, msg);
+
+//                        fcm.onMessageReceived();
+                        //Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });*/
+        // [END log_reg_token]
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu);
+
+
+
+        manboService = new Intent(this, StepCheckService.class);
+        receiver = new PlayingReceiver();
+        //countText = (TextView) findViewById(R.id.stepText);
+
+        try {
+            IntentFilter mainFilter = new IntentFilter("make.a.yong.manbo");
+            registerReceiver(receiver, mainFilter);
+            startService(manboService);
+            setValue();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), e.getMessage(),
+                    Toast.LENGTH_LONG).show();
+        }
+        /*tvTimeDif = (TextView)findViewById(R.id.tvTimeDif);
+        tvDistDif = (TextView)findViewById(R.id.tvDistDif);
+        tvCalDif = (TextView)findViewById(R.id.calorie);*/
+        //권한 체크
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        if (lastKnownLocation != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+            String formatDate = sdf.format(new Date(lastKnownLocation.getTime()));
+        }
+        // GPS 사용 가능 여부 확인
+        boolean isEnable = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000,0, this);
 
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setTitle("83세 한유진");
@@ -88,13 +268,12 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
 
-        TextView textView = (TextView)findViewById(R.id.textView);
+        //TextView textView = (TextView)findViewById(R.id.textView);
 
-        Log.d(this.getClass().getName(), (String)textView.getText());
+        //Log.d(this.getClass().getName(), (String)textView.getText());
 
-
-        textView.setText(x+"걸음\n"+(x*0.37)+"Kcal");
-
+        //textView.setText(serviceData+"걸음\n"+(calorie*0.37)+"Kcal");
+        //countText.setText(serviceData);
         BarChartGraph();
 
         Button lifePatternButton = (Button) findViewById(R.id.lifePatternButton);
@@ -234,5 +413,136 @@ public class MainActivity extends AppCompatActivity {
     public void ClickTagHistory(View view) {
         Intent intent = new Intent( this, TagHistory.class);
         startActivity(intent);
+    }
+    class PlayingReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+
+            if (Intent.ACTION_DATE_CHANGED.equals(action)) {
+                // 날짜가 변경된 경우 해야 될 작업
+                unregisterReceiver(receiver);
+                stopService(manboService);
+                deltaTime = 0;
+                calorie = 0;
+                totalLocation = 0;
+            }
+            Log.i("PlayignReceiver", "IN");
+            serviceData = intent.getStringExtra("stepService");
+            //countText.setText(serviceData);
+            TextView textView = (TextView)findViewById(R.id.textView);
+            textView.setText(serviceData+"걸음\n");
+            //Toast.makeText(getApplicationContext(), "Playing game", Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    public void onLocationChanged(Location location) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+
+        //  getSpeed() 함수를 이용하여 속도를 계산
+        double getSpeed = Double.parseDouble(String.format("%.3f", location.getSpeed()));
+        String formatDate = sdf.format(new Date(location.getTime()));
+        // 위치 변경이 두번째로 변경된 경우 계산에 의해 속도 계산
+        if(mLastlocation != null) {
+            //시간 간격
+            deltaTime += (location.getTime() - mLastlocation.getTime()) / 1000.0;
+            calorie += deltaTime/30.0;
+            //TextView textView = (TextView)findViewById(R.id.calorie1);
+            //textView.setText((calorie*0.37)+"Kcal");
+            int rouneded_time = (int) Math.round(deltaTime);
+
+            //tvCalDif.setText(calorie + "kcal");
+            //tvTimeDif.setText((deltaTime/60) + " 분");  // Time Difference
+            totalLocation += mLastlocation.distanceTo(location);
+            //sttvDistDif.setText(totalLocation + " m");  // Time Difference
+            // 속도 계산
+            speed = mLastlocation.distanceTo(location) / deltaTime;
+            String formatLastDate = sdf.format(new Date(mLastlocation.getTime()));
+            double calSpeed = Double.parseDouble(String.format("%.3f", speed));
+        }
+        // 현재위치를 지난 위치로 변경
+        mLastlocation = location;
+        setValue();
+    }
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+    }
+    @Override
+    public void onProviderEnabled(String provider) {
+        //권한 체크
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        // 위치정보 업데이트
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000,0, this);
+    }
+    @Override
+    public void onProviderDisabled(String provider) {
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //권한 체크
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        // 위치정보 업데이트
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000,0, this);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // 위치정보 가져오기 제거
+        locationManager.removeUpdates(this);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            //권한이 없을 경우 최초 권한 요청 또는 사용자에 의한 재요청 확인
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION) &&
+                    ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION)) {
+                // 권한 재요청
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
+                return;
+            } else {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 100);
+                return;
+            }
+        }
+    }
+
+    private void getValue() {
+        final DatabaseReference stepValue = mDatabase.child("Home1").child("2021-8-24").child("Step");
+        final DatabaseReference exerciseTimeValue = mDatabase.child("Home1").child("2021-8-24").child("ExerciseTime");
+        final DatabaseReference distanceValue = mDatabase.child("Home1").child("2021-8-24").child("Distance");
+        final DatabaseReference calorieValue = mDatabase.child("Home1").child("2021-8-24").child("Calorie");
+
+        setContentView(R.layout.activity_exercise_detail);
+        TextView butt = (TextView) findViewById(R.id.textView53);
+
+        stepValue.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()) {
+                    Long bathValue = (Long) snapshot.getValue();
+
+                    butt.setText(bathValue.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+    }
+    private void setValue(){
+        databaseReference.child("Home1").child("2021-08-24").child("Step").setValue(serviceData);
+        databaseReference.child("Home1").child("2021-08-24").child("ExerciseTime").setValue(deltaTime);
+        databaseReference.child("Home1").child("2021-08-24").child("Distance").setValue(totalLocation);
+        databaseReference.child("Home1").child("2021-08-24").child("Calorie").setValue(calorie);
     }
 }

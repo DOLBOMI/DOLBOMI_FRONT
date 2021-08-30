@@ -119,14 +119,14 @@ public class LifePatternActivity extends AppCompatActivity {
         dayOfWeek  = today.getDayOfWeek();
         dayOfWeekNumber = dayOfWeek.getValue();
 
-        if (hour_ >= 24) {
-            hour_ -= 24;
-            day += 1;
-            dayOfWeekNumber += 1;
-            if (dayOfWeekNumber == 8) {
-                dayOfWeekNumber = 1;
-            }
-        }
+//        if (hour_ >= 24) {
+//            hour_ -= 24;
+//            //day += 1;
+//            dayOfWeekNumber += 1;
+//            if (dayOfWeekNumber == 8) {
+//                dayOfWeekNumber = 1;
+//            }
+//        }
 
         if(month < 10) {
             month_s = "0" + month;
