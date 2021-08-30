@@ -4,27 +4,21 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.DatePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.DatePicker;
-
-import com.example.dolbomi.TagHistory;
-
 import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DatePickerFragment#newInstance} factory method to
+ * Use the {@link DatePickerFragment2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
+public class DatePickerFragment2 extends DialogFragment implements DatePickerDialog.OnDateSetListener{
 
     @NonNull
     @Override
@@ -37,16 +31,11 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         return new DatePickerDialog(getActivity(),this,year,month,day);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-        TagHistory activity = (TagHistory)getActivity();
-        try {
-            Thread.sleep(300);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        activity.processDatePickerResult(year,month,day);
+        LifePatternActivity activity = (LifePatternActivity)getActivity();
+        activity.processDatePickerResult(year,month+1,day);
     }
 }
 
