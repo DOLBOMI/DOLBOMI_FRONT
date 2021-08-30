@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
 
         <ScrollView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -116,7 +116,10 @@
                 android:layout_marginRight="30dp"
                 android:orientation="vertical">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+
+
+
+                <!--<androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_marginBottom="10dp"
@@ -303,8 +306,15 @@
                         app:layout_constraintStart_toEndOf="@+id/textView4"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+                -->
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="152dp"
+                    android:id="@+id/tablelayout1">
 
 
+                </TableLayout>
             </LinearLayout>
 
 

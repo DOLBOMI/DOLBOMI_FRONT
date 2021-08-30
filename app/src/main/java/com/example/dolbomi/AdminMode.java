@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,8 +19,21 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.content.ContentValues.TAG;
 
 public class AdminMode extends AppCompatActivity {
     Dialog dialog01;
@@ -42,13 +57,131 @@ public class AdminMode extends AppCompatActivity {
         dialog01.requestWindowFeature(Window.FEATURE_NO_TITLE); // 타이틀 제거
         dialog01.setContentView(R.layout.activity_change_status);             // xml 레이아웃 파일과 연결
 
+        ArrayList<ArrayList<String>> datas = new ArrayList<ArrayList<String>>();
+
+        ArrayList<String> arrarr = new ArrayList<String>();
+        arrarr.add("한유진");
+        arrarr.add("위험");
+
+        ArrayList<String> arrarr2 = new ArrayList<String>();
+        arrarr2.add("한유진2");
+        arrarr2.add("위험2");
+
+        datas.add(arrarr);
+        datas.add(arrarr2);
+
+        getData(datas);
+
+        //SimpleUser user = new SimpleUser();
+
+//        List<SimpleUser> users = DolbomiService.service.listUsers();
+//        Log.d("TESTNOW", users.get(0).getClass().getName());
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:8080/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        DolbomiService service = retrofit.create(DolbomiService.class);
+
+        Call<List<SimpleUser>> call = service.listUsers();
+
+        call.enqueue(new Callback<List<SimpleUser>>() {
+
+            @Override
+            public void onResponse(Call<List<SimpleUser>> call, Response<List<SimpleUser>> response) {
+                if(response.isSuccessful()) {
+                    List<SimpleUser> users = response.body();
+                    Log.d(TAG, "api 테스트" + users.get(0).getClass().getName());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<SimpleUser>> call, Throwable t) {
+                Log.d(TAG, "실패 실패 api" + t);
+            }
+        });
+
+        /*
         // 버튼: 커스텀 다이얼로그 띄우기
-        findViewById(R.id.change_button1).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialog01(); // 아래 showDialog01() 함수 호출
             }
+        }); */
+
+        // 전체
+        findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
         });
+/*
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //showDialog01(); // 아래 showDialog01() 함수 호출
+            }
+        });
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //showDialog01(); // 아래 showDialog01() 함수 호출
+            }
+        });
+        findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        }); */
+
+    }
+
+    public void getData(ArrayList<ArrayList<String>> datas){
+        TableLayout tbl = (TableLayout) findViewById(R.id.tablelayout1);
+
+        tbl.removeAllViews();
+
+        for (int i = 0; i < datas.size(); i++) {
+            TableRow row= new TableRow(this);
+
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
+            row.setLayoutParams(lp);
+
+            TextView tv = new TextView(this);
+            //tv.setBackground(getDrawable(R.drawable.boarder));
+            tv.setTextColor(Color.DKGRAY);
+            tv.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL);
+            tv.setTextSize(13);
+            tv.setWidth(200);
+
+            TextView tv2 = new TextView(this);
+            //tv2.setBackground(getDrawable(R.drawable.boarder));
+            tv2.setTextColor(Color.DKGRAY);
+            tv2.setGravity(Gravity.LEFT|Gravity.CENTER_HORIZONTAL);
+            tv2.setTextSize(13);
+            tv2.setWidth(550);
+
+            Button button = new Button(this);
+            button.setText("상태변경");
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showDialog01(); // 아래 showDialog01() 함수 호출
+                }
+            });
+
+
+            tv.setText(datas.get(i).get(1));
+            tv2.setText(datas.get(i).get(0));
+            row.addView(tv);
+            row.addView(tv2);
+            row.addView(button);
+            tbl.addView(row);
+        }
     }
 
     //추가된 소스, ToolBar에 menu.xml을 인플레이트함

@@ -24,7 +24,12 @@
         <activity android:name=".PhysicalInputActivity"
             tools:ignore="Instantiatable"></activity>
         <activity android:name=".ChangeStatus"></activity>
-        <activity android:name=".AdminMode"></activity>
+        <activity android:name=".AdminMode">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".LifePatternActivity"></activity>
         <activity android:name=".TagHistory" />
         <activity android:name=".ExerciseDetail"/>
