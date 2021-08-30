@@ -7,11 +7,14 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
 
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.AlertDialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -44,11 +47,13 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.TimeZone;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.google.firebase.messaging.RemoteMessage;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -59,6 +64,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import com.google.firebase.messaging.FirebaseMessaging;
+
+
 
 public class MainActivity extends AppCompatActivity implements LocationListener {
     Dialog dialog;
@@ -117,39 +126,84 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         barChart.animateXY(1000,1000);
         barChart.invalidate();
     }
+/*
+    public void push_notification() {
+        //푸시 알림
+        String channelId = "Channel ID";
+
+        NotificationCompat.Builder notificationBuilder =
+                new NotificationCompat.Builder(this, channelId)
+                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setContentTitle("운동량 부족!")
+                        .setContentText("오늘은 평소보다 운동량이 적은 것 같아요! 더 움직여 보세요 :)")
+                        .setAutoCancel(true);
+        //.setFullScreenIntent(pendingIntent, true);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelName = "Channel Name";
+            NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        notificationManager.notify(0, notificationBuilder.build());
+    };*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+/*
+        TimeZone tz;
+        long now = System.currentTimeMillis();
+        SimpleDateFormat time = new SimpleDateFormat("hh");
+        tz = TimeZone.getTimeZone("Asia/Seoul");
+        time.setTimeZone(tz);
 
-        Post post = new Post("token이다","title이다", "body다");
-        RetrofitAPI retrofitAPI = ApiClient.getClient().create(RetrofitAPI.class);
+        Date date = new Date(now);
+        String getTime = time.format(date);
+        // Log.d("현재 시간", getTime);
+        SimpleDateFormat day = new SimpleDateFormat("yyyy-MM-dd");
+        String getDay = day.format(date);
 
-        Call<Post> call = retrofitAPI.getJsonString(post);
-        //final ObjectMapper mapper = new ObjectMapper();
-        call.enqueue(new Callback<Post>() {
-            @Override
-            public void onResponse(Call<Post> call, Response<Post> response) {
-                try {
-                    Log.d("TEST1", response.body().toString());
-                    Post post= response.body();
-                    Log.d("TEST2", post.toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+        //final DatabaseReference calorieValue = mDatabase.child("Home1").child(getDay).child("Calorie");
+        Log.d("시간", getTime);
+        if (getTime.equals("08")) {
+            Log.d("같음", getTime);
 
-            @Override
-            public void onFailure(Call<Post> call, Throwable t) {
-                Log.d("Fail", t.toString());
-            }
-        });
+        }
+        if (getTime == "08") {
+            Log.d("시간일때 푸시드러오는 로그", getTime);
+
+        }*/
+      //  RemoteMessage rm = new RemoteMessage()
+        // The topic name can be optionally prefixed with "/topics/".
+        //String topic = "highScores";
 
 
-            // Get token
+ /*       FirebaseMessaging fm = FirebaseMessaging.getInstance();
+        fm.send(new RemoteMessage.Builder("758940348113" + "@fcm.googleapis.com")
+                //.setMessageId(Integer.toString(messageId))
+                .addData("my_message", "운동량 부족")
+                .addData("my_action","SAY_HELLO")
+                .build());*/
+/*
+        RemoteMessage message = new RemoteMessage(bundle);
+
+        RemoteMessage rm = RemoteMessage.setTitle("")
+        MyFirebaseMessagingService fcm = new MyFirebaseMessagingService();
+        fcm.onMessageReceived(fm);
+*/
+
+        // Send a message to the devices subscribed to the provided topic.
+        //String response = FirebaseMessaging.getInstance().send(message);
+        // Response is a message ID string.
+        //System.out.println("Successfully sent message: " + response);
+
+        // Get token
         // [START log_reg_token]
-        /*FirebaseMessaging.getInstance().getToken()
+        //MyFirebaseMessagingService fcm = new MyFirebaseMessagingService();
+        FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
@@ -164,17 +218,22 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                         // Log and toast
                         String msg = getString(R.string.msg_token_fmt, token);
                         Log.d(TAG, msg);
+
+//                        fcm.onMessageReceived();
                         //Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
-                });*/
+                });
         // [END log_reg_token]
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //getSupportActionBar().setHomeAsUpIndicator(R.drawable.menu);
 
+
+
         manboService = new Intent(this, StepCheckService.class);
         receiver = new PlayingReceiver();
-        countText = (TextView) findViewById(R.id.stepText);
+        //countText = (TextView) findViewById(R.id.stepText);
+
         try {
             IntentFilter mainFilter = new IntentFilter("make.a.yong.manbo");
             registerReceiver(receiver, mainFilter);
@@ -184,9 +243,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             Toast.makeText(getApplicationContext(), e.getMessage(),
                     Toast.LENGTH_LONG).show();
         }
-        tvTimeDif = (TextView)findViewById(R.id.tvTimeDif);
+        /*tvTimeDif = (TextView)findViewById(R.id.tvTimeDif);
         tvDistDif = (TextView)findViewById(R.id.tvDistDif);
-        tvCalDif = (TextView)findViewById(R.id.calorie);
+        tvCalDif = (TextView)findViewById(R.id.calorie);*/
         //권한 체크
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
@@ -209,12 +268,12 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
 
-        TextView textView = (TextView)findViewById(R.id.textView);
+        //TextView textView = (TextView)findViewById(R.id.textView);
 
-        Log.d(this.getClass().getName(), (String)textView.getText());
+        //Log.d(this.getClass().getName(), (String)textView.getText());
 
-        textView.setText(serviceData+"걸음\n"+(calorie*0.37)+"Kcal");
-
+        //textView.setText(serviceData+"걸음\n"+(calorie*0.37)+"Kcal");
+        //countText.setText(serviceData);
         BarChartGraph();
 
         Button lifePatternButton = (Button) findViewById(R.id.lifePatternButton);
@@ -371,6 +430,8 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             Log.i("PlayignReceiver", "IN");
             serviceData = intent.getStringExtra("stepService");
             //countText.setText(serviceData);
+            TextView textView = (TextView)findViewById(R.id.textView);
+            textView.setText(serviceData+"걸음\n");
             //Toast.makeText(getApplicationContext(), "Playing game", Toast.LENGTH_SHORT).show();
         }
     }
@@ -387,6 +448,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             //시간 간격
             deltaTime += (location.getTime() - mLastlocation.getTime()) / 1000.0;
             calorie += deltaTime/30.0;
+            //TextView textView = (TextView)findViewById(R.id.calorie1);
+            //textView.setText((calorie*0.37)+"Kcal");
+            int rouneded_time = (int) Math.round(deltaTime);
+
             //tvCalDif.setText(calorie + "kcal");
             //tvTimeDif.setText((deltaTime/60) + " 분");  // Time Difference
             totalLocation += mLastlocation.distanceTo(location);
@@ -475,9 +540,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         });
     }
     private void setValue(){
-        databaseReference.child("Home1").child("2021-8-24").child("Step").setValue(serviceData);
-        databaseReference.child("Home1").child("2021-8-24").child("ExerciseTime").setValue(deltaTime);
-        databaseReference.child("Home1").child("2021-8-24").child("Distance").setValue(totalLocation);
-        databaseReference.child("Home1").child("2021-8-24").child("Calorie").setValue(calorie);
+        databaseReference.child("Home1").child("2021-08-24").child("Step").setValue(serviceData);
+        databaseReference.child("Home1").child("2021-08-24").child("ExerciseTime").setValue(deltaTime);
+        databaseReference.child("Home1").child("2021-08-24").child("Distance").setValue(totalLocation);
+        databaseReference.child("Home1").child("2021-08-24").child("Calorie").setValue(calorie);
     }
 }

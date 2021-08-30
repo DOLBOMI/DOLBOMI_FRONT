@@ -78,22 +78,32 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
+
     @Override
     public void onNewToken(String token) {
         Log.d("FCM Log", "Refreshed token: " + token);
     }
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        if (remoteMessage.getNotification() != null) {                      //포어그라운드
+        if (remoteMessage.getNotification() != null) {
+            //포어그라운드
+
             sendNotification(remoteMessage.getNotification().getBody(), remoteMessage.getNotification().getTitle());
-        }else if (remoteMessage.getData().size() > 0) {                           //백그라운드
+        } else if (remoteMessage.getData().size() > 0) {                           //백그라운드
             sendNotification(remoteMessage.getData().get("body"), remoteMessage.getData().get("title"));
             /* 백그라운드 작동 내용 */
         }
     }
 
-    private void sendNotification(String messageBody, String messageTitle)  {
+    private void sendNotification(String messageBody, String messageTitle) {
         Log.d("FCM Log", "알림 메시지: " + messageBody);
 
         Intent intent = new Intent(this, MainActivity.class);
@@ -116,7 +126,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Intent newintent = new Intent(this, MainActivity.class);
         newintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity( newintent );
+        startActivity(newintent);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             String channelName = "Channel Name";
@@ -126,8 +136,32 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         notificationManager.notify(0, notificationBuilder.build());
     }
-
 }
+/*
+    public String readJson(Context context, String fileName) {
+        try {
+            //FileInputStream 파일 -> 바이트 스트림
+            //openFileInput()에 반환 값은 FileInputStream
+            FileInputStream fis = context.openFileInput(fileName);
+            //바이트 stream -(지정된 charset를 사용)> 문자 stream
+            InputStreamReader isr = new InputStreamReader(fis);
+            //입출력 속도 상승을 위해 사용
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String line;
+            //ufferedReader.readLine()은 Stream에서 한줄을 읽어 반환한다.
+            while ((line = bufferedReader.readLine()) != null) {
+                sb.append(line);
+            }
+            return sb.toString();
+        } catch (FileNotFoundException fileNotFound) {
+            return null;
+        } catch (IOException ioException) {
+            return null;
+        }
+    }
+
+}*/
 
 
 //onMessageReceived : 받은 메시지에서 title과 body를 추출
