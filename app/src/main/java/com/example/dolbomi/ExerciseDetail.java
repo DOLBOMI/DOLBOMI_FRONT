@@ -47,10 +47,6 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
     int selectDay = 8000;
     int tomorrow = 5000;
 
-    String yesterdayDate = "21/07/21";
-    String selectedDate = "21/07/22";
-    String tomorrowDate = "21/07/23";
-
     Intent manboService;
     BroadcastReceiver receiver;
     String serviceData;
@@ -68,7 +64,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
     private double speed;
     private double calorie = 0;
 
-    TableLayout tbl;
+    //TableLayout tbl;
     ArrayList<ArrayList<String>> datas = new ArrayList<ArrayList<String>>();
 
     public void BarChartGraph() {
@@ -107,7 +103,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_detail);
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        setValue();
+        //setValue();
 
         Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setTitle("상세 데이터");
@@ -130,7 +126,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
             IntentFilter mainFilter = new IntentFilter("make.a.yong.manbo");
             registerReceiver(receiver, mainFilter);
             startService(manboService);
-            setValue();
+            //setValue();
         } catch (Exception e) {
             Toast.makeText(getApplicationContext(), e.getMessage(),
                     Toast.LENGTH_LONG).show();
@@ -169,7 +165,8 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //getValue(year, month, day);
+        getValue(year, month, day);
+        System.out.println("--------------------------------------------------------------------------");
     }
 
     public void showDatePicker(View view) {
@@ -220,7 +217,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
         }
         // 현재위치를 지난 위치로 변경
         mLastlocation = location;
-        setValue();
+        //setValue();
     }
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -293,15 +290,19 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
         Log.d("date", date);
 
 
-        tbl = (TableLayout) findViewById(R.id.tableLayout);
+        //tbl = (TableLayout) findViewById(R.id.tableLayout);
 
-        final DatabaseReference stepValue = mDatabase.child("Home1").child(date).child("Step").child(serviceData);
+        /*final DatabaseReference stepValue = mDatabase.child("Home1").child(date).child("Step").child(serviceData);
         final DatabaseReference exerciseValue  = mDatabase.child("Home1").child(date).child("ExerciseTime").child(String.valueOf(deltaTime));
         final DatabaseReference distanceValue  = mDatabase.child("Home1").child(date).child("Distance").child(String.valueOf(totalLocation));
         final DatabaseReference calorieValue  = mDatabase.child("Home1").child(date).child("Calorie").child(String.valueOf(calorie));
+*/
+        final DatabaseReference stepValue = mDatabase.child("Home1").child("2021-08-23").child("Step");
+        final DatabaseReference exerciseValue  = mDatabase.child("Home1").child("2021-08-23").child("ExerciseTime");
+        final DatabaseReference distanceValue  = mDatabase.child("Home1").child("2021-08-23").child("Distance");
+        final DatabaseReference calorieValue  = mDatabase.child("Home1").child("2021-08-23").child("Calorie");
 
-
-        setContentView(R.layout.activity_firebase_base);
+        //setContentView(R.layout.activity_firebase_base);
         TextView stepButt = (TextView) findViewById(R.id.stepText);
 
         stepValue.addValueEventListener(new ValueEventListener() {
@@ -320,7 +321,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
             }
         });
 
-        setContentView(R.layout.activity_firebase_base);
+        //setContentView(R.layout.activity_firebase_base);
         TextView timeButt = (TextView) findViewById(R.id.tvTimeDif);
 
         exerciseValue.addValueEventListener(new ValueEventListener() {
@@ -339,7 +340,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
             }
         });
 
-        setContentView(R.layout.activity_firebase_base);
+        //setContentView(R.layout.activity_firebase_base);
         TextView disButt = (TextView) findViewById(R.id.tvDistDif);
 
         distanceValue.addValueEventListener(new ValueEventListener() {
@@ -358,7 +359,7 @@ public class ExerciseDetail extends AppCompatActivity implements LocationListene
             }
         });
 
-        setContentView(R.layout.activity_firebase_base);
+        //setContentView(R.layout.activity_firebase_base);
         TextView calButt = (TextView) findViewById(R.id.calorie);
 
         calorieValue.addValueEventListener(new ValueEventListener() {
