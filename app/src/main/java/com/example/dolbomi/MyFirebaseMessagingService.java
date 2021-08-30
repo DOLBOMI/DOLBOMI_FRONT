@@ -106,7 +106,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private void sendNotification(String messageBody, String messageTitle) {
         Log.d("FCM Log", "알림 메시지: " + messageBody);
 
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LifePatternActivity.class);
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -124,7 +124,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setFullScreenIntent(pendingIntent, true);
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Intent newintent = new Intent(this, MainActivity.class);
+        Intent newintent = new Intent(this, LifePatternActivity.class);
         newintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(newintent);
 

@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         // Get token
         // [START log_reg_token]
         //MyFirebaseMessagingService fcm = new MyFirebaseMessagingService();
-        FirebaseMessaging.getInstance().getToken()
+        /*FirebaseMessaging.getInstance().getToken()
                 .addOnCompleteListener(new OnCompleteListener<String>() {
                     @Override
                     public void onComplete(@NonNull Task<String> task) {
@@ -222,7 +222,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 //                        fcm.onMessageReceived();
                         //Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
         // [END log_reg_token]
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
