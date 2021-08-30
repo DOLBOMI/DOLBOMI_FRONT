@@ -74,6 +74,13 @@ public class LifePatternActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        int totalFrontDoorCount = 0;
+        int totalBathRoomCount = 0;
+        int totalBedRoomCount = 0;
+        int totalRefrigeratorCount = 0;
+
+        int count = 0;
+
         processDatePickerResult(year_, month_, day_);
 
     }
@@ -88,6 +95,13 @@ public class LifePatternActivity extends AppCompatActivity {
         setContentView(R.layout.activity_life_pattern);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        totalFrontDoorCount = 0;
+        totalBathRoomCount = 0;
+        totalBedRoomCount = 0;
+        totalRefrigeratorCount = 0;
+
+        count = 0;
 
         date.set(Calendar.YEAR, year);
         date.set(Calendar.MONTH, month-1);

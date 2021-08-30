@@ -448,7 +448,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             //시간 간격
             deltaTime += (location.getTime() - mLastlocation.getTime()) / 1000.0;
             calorie += deltaTime/30.0;
-            //TextView textView = (TextView)findViewById(R.id.calorie1);
+          //  TextView textView = (TextView)findViewById(R.id.calorie1);
             //textView.setText((calorie*0.37)+"Kcal");
             int rouneded_time = (int) Math.round(deltaTime);
 
